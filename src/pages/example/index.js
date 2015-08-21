@@ -3,8 +3,7 @@
 var React = require("react"),
 	_ = require("lodash"),
 
-    Page = require("../page"),
-	FavouritesChart = require("./favourites-chart");
+    Page = require("../page");
 
 require("./style.less");
 
