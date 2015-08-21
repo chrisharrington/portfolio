@@ -1,0 +1,29 @@
+{
+  "name": "story-builder",
+  "version": "0.0.0",
+  "homepage": "https://github.com/chrisharrington/story-builder",
+  "authors": [
+    "Chris Harrington <chrisharrington99@gmail.com>"
+  ],
+  "main": "src/index.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "moment": "~2.10.2",
+    "react": "~0.13.2",
+    "eventEmitter": "~4.2.11",
+    "qwest": "~1.5.11",
+    "react-router": "~0.13.3",
+    "blueimp-md5": "~1.1.0",
+    "lodash": "~3.8.0",
+    "speakingurl": "~3.0.0",
+    "query-string": "~2.3.0",
+    "ayepromise": "~1.1.2"
+  }
+}
