@@ -1,11 +1,10 @@
 "use strict";
 
-var qwest = require("qwest"),
+var ajax = require("components/ajax"),
     config = require("config"),
-    query = require("query-string"),
-    Promise = require("ayepromise");
+    Promise = require("es6-promise").Promise;
 
-var SIGNED_IN_USER = "signed-in-user";
+var SIGNED_IN_USER = "logsalot-user";
 
 module.exports = new function() {
     this.getUser = function() {
@@ -14,16 +13,21 @@ module.exports = new function() {
         return this.user;
     },
 
+    this.setUser = function(user) {
+        this.user = user;
+        window.localStorage.setItem(SIGNED_IN_USER, JSON.stringify(this.user));
+    },
+
     this.getRequestToken = function() {
-        window.location.href = config.api + "auth/request-token";
+        window.location.href = config.api + "sign-in/twitter/request-token";
     };
 
     this.getAccessToken = function(token, verifier) {
         var user = this.getUser();
         if (user)
-            return Promise.resolve(user);
+            Promise.resolve(user);
 
-        return qwest.get(config.api + "auth/access-token", {
+        return ajax.get(config.api + "sign-in/twitter/access-token", {
             oauth_token: token,
             oauth_verifier: verifier
         }).then(function(user) {

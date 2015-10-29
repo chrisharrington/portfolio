@@ -1,0 +1,29 @@
+@import "../../../../../style/variables.less";
+@import "../../../../../style/mixins.less";
+
+div.plan-selector {
+    float:left;
+    width:100%;
+    position:relative;
+
+    div.selector {
+        position:absolute;
+        z-index:6;
+        width:100%;
+        top:58px;
+        border:solid 1px @grey-border-colour;
+        .shadow;
+
+        &.selector-show {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 200ms ease;
+        }
+
+        &.selector-hide {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s 200ms, opacity 200ms ease;
+        }
+    }
+}

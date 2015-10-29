@@ -2,15 +2,34 @@
 
 <html>
 	<head>
-		<title>Example</title>
+		<title>Logsalot</title>
 
-		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, user-scalable=no" />
 
-		<link href="http://fonts.googleapis.com/css?family=Oswald:400|Lato:400,700|Roboto:400,700|Roboto+Condensed:300,400" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="bundle.css" />
+		<link href="http://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,700|Oswald:400" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+		<script src="https://apis.google.com/js/api:client.js"></script>
 	</head>
 	<body>
+		<script>
+			window.fbAsyncInit = function() {
+			FB.init({
+			  appId      : '754807634631679',
+			  xfbml      : true,
+			  version    : 'v2.4'
+			});
+			};
+
+			(function(d, s, id){
+			 var js, fjs = d.getElementsByTagName(s)[0];
+			 if (d.getElementById(id)) {return;}
+			 js = d.createElement(s); js.id = id;
+			 js.src = "//connect.facebook.net/en_US/sdk.js";
+			 fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+
 		<script src="bundle.js"></script>
 	</body>
 </html>

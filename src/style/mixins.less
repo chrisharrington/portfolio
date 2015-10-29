@@ -168,6 +168,7 @@
 .for-impl_(@i) when (@i > 1)    {.for-impl_((@i - 1))}
 .for-impl_(@i) when (@i > 0)    {.-each(extract(@array, @i))}
 
+.ellipsis(@width) { text-overflow:ellipsis; overflow:hidden; white-space:nowrap; width:@width; }
 .vertical-centre(@height) { display:inline-block; vertical-align:middle; height:@height; line-height:@height; }
 .break-letter { word-break:break-all; }
 

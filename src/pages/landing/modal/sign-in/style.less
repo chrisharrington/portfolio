@@ -1,0 +1,35 @@
+@import "../../../../style/variables.less";
+@import "../../../../style/mixins.less";
+
+div.modal div.sign-in {
+    >* {
+        width:100%;
+        display:block;
+        margin-top:@spacing;
+    }
+
+    >h3 {
+        margin-top:0;
+        color:black;
+    }
+
+    >span {
+        color:#888;
+        font-size:0.9em;
+
+        b {
+            color:#555;
+        }
+    }
+
+    >div.buttons-container {
+        >* {
+            float:left;
+            margin-bottom:@spacing/2;
+
+            &:last-child {
+                margin-bottom:0;
+            }
+        }
+    }
+}

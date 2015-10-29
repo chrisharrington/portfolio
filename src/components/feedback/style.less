@@ -1,0 +1,31 @@
+@import "../../style/variables.less";
+@import "../../style/mixins.less";
+
+div.feedback {
+    position:absolute;
+    z-index:2;
+    padding:@spacing;
+    .dark-shadow;
+    width:600px;
+
+    &.feedback-show {
+        display:block;
+    }
+
+    &.feedback-hide {
+        display:none;
+    }
+
+    &.error {
+        color:white;
+        .gradient(#940606, #CC3B3B);
+    }
+
+    i {
+        position:absolute;
+        right:@spacing*-1;
+        top:@spacing*-1;
+        padding:@spacing;
+        cursor:pointer;
+    }
+}

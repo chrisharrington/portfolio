@@ -1,0 +1,85 @@
+@import "../../style/variables.less";
+@import "../../style/mixins.less";
+
+div.modal {
+    @transition-duration:350ms;
+
+    a {
+        color:#555 !important;
+        text-decoration:underline;
+        cursor:pointer;
+    }
+
+    &.fade-in {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity @transition-duration linear;
+    }
+
+    &.fade-out {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s @transition-duration, opacity @transition-duration linear;
+    }
+
+    div.overlay {
+        position:fixed;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        z-index:2;
+        background:rgba(200, 200, 200, 0.7);
+    }
+
+    div.modal-transition {
+        width:100px;
+        height:100px;
+        position:absolute;
+        z-index:4;
+        top:100px;
+        background:white;
+        transform-origin:top center;
+        -webkit-transform-origin:top center;
+        transition:transform @transition-duration ease;
+        -webkit-transition:-webkit-transform @transition-duration ease;
+    }
+
+    div.modal-content {
+        position:absolute;
+        top:100px;
+        z-index:3;
+        background:white;
+        transform-origin:top center;
+        -webkit-transform-origin:top center;
+        padding:1em;
+        opacity:0;
+
+        &.current, &.target {
+            opacity:1;
+            z-index:5;
+        }
+
+        &.transition-out {
+            transition:transform @transition-duration ease, opacity @transition-duration*2/5 ease;
+            -webkit-transition:-webkit-transform @transition-duration ease, opacity @transition-duration*3/5 ease;
+            opacity:0;
+        }
+
+        &.transition-in {
+            transition:transform @transition-duration ease, opacity @transition-duration*2/5 @transition-duration*3/5 ease;
+            -webkit-transition:-webkit-transform @transition-duration ease, opacity @transition-duration*2/5 @transition-duration*4/5 ease;
+            opacity:1;
+        }
+
+        >i {
+            position:absolute;
+            top:@spacing;
+            right:@spacing;
+            color:#BBB;
+            padding:1em;
+            margin:-1em -1em 0 0;
+            cursor:pointer;
+        }
+    }
+}

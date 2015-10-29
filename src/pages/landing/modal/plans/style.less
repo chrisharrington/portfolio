@@ -1,0 +1,111 @@
+@import "../../../../style/variables.less";
+@import "../../../../style/mixins.less";
+
+div.plans {
+    >h3 {
+        display:block;
+        width:100%;
+        color:black;
+    }
+
+    >span {
+        display:block;
+        width:100%;
+        color:#888;
+        margin-top:@spacing;
+        font-size:0.9em;
+    }
+
+    >div.row {
+        margin-top:@spacing;
+
+        >div {
+            border-left:solid 1px #CCC;
+
+            &:first-child {
+                border-left:none;
+            }
+        }
+    }
+
+    >button {
+        float:right;
+        margin-top:@spacing;
+    }
+}
+
+div.plan {
+    padding:@spacing;
+    font-size:0.8em;
+
+    >* {
+        float:left;
+        width:100%;
+        margin-top:@spacing;
+    }
+
+    >h2 {
+        margin-top:0;
+        text-align:center;
+    }
+
+    >div.features {
+        >div {
+            float:left;
+            width:100%;
+            margin-top:@spacing;
+
+            &:first-child {
+                margin-top:0;
+            }
+
+            >span.feature {
+                float:left;
+                color:#BBB;
+            }
+
+            >span.value {
+                float:right;
+                color:#555;
+                font-weight:bold;
+            }
+        }
+    }
+
+    >div.price {
+        >span.price {
+            float:left;
+            color:@header-background-colour;
+            font-weight:bold;
+            font-size:2em;
+        }
+
+        >span.cents {
+            float:left;
+            font-size:0.85em;
+            margin-top:2px;
+            margin-left:3px;
+            color:@header-background-colour;
+        }
+
+        >span.details {
+            float:left;
+            display:none;
+            color:#BBB;
+            font-size:0.8em;
+            margin-left:@spacing;
+            .vertical-centre(30px);
+        }
+    }
+
+    >a {
+        float:left;
+        color:#333;
+        width:100%;
+        margin-top:@spacing;
+        cursor:pointer;
+        text-decoration:underline;
+        padding:5px 0;
+        text-align:center;
+    }
+}

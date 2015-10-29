@@ -1,0 +1,78 @@
+@import "../../style/variables.less";
+@import "../../style/mixins.less";
+
+@height:38px;
+@icon-width:44px;
+
+div.sign-in-button {
+    cursor:pointer;
+    height:@height;
+    width:100%;
+    .border-radius;
+    color:white;
+    position:relative;
+
+    >* {
+        .vertical-centre(@height);
+    }
+
+    i.logo {
+        float:left;
+        font-size:22px;
+        width:@icon-width;
+        text-align:center;
+        height:100%;
+        border-top-left-radius:3px;
+        border-bottom-left-radius:3px;
+    }
+
+    span.text {
+        float:left;
+        margin-left:@spacing;
+        font-family:"Open Sans";
+        font-size:0.9em;
+    }
+
+    div.loader-container {
+        position:absolute;
+        top:9px;
+        right:9px;
+        display:none;
+    }
+
+    &.loading {
+        div.loader-container {
+            display:block;
+        }
+    }
+}
+
+div.sign-in-with-google-button {
+    background:darken(@google-red, 5%);
+
+    i.logo {
+        background:@google-red;
+        padding-top:1px;
+    }
+
+    div.loader {
+        border-color:lighten(@google-red, 20%);
+        border-top-color:darken(@google-red, 15%);
+    }
+}
+
+div.sign-in-with-twitter-button {
+    background:darken(@twitter-blue, 5%);
+
+    i {
+        background:@twitter-blue;
+    }
+}
+
+div.sign-in-with-facebook-button {
+    background:lighten(@facebook-blue, 5%);
+
+    i {
+        background:@facebook-blue;
+    }
+}

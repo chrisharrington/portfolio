@@ -1,0 +1,83 @@
+@import "../../style/variables.less";
+@import "../../style/mixins.less";
+
+div.header {
+    float:left;
+    width:100%;
+    height:@header-height;
+    background-color:@header-background-colour;
+    padding:0 @spacing;
+    .shadow;
+
+    >* {
+        height:@header-height;
+        vertical-align:middle;
+        line-height:@header-height;
+        display:inline-block;
+    }
+
+    span.logo {
+        float:left;
+        .box-sizing;
+        font-size:28px;
+        color:white;
+    }
+
+    div.buttons {
+        float:right;
+        margin-right:@spacing;
+
+        >a {
+            float:left;
+            cursor:pointer;
+            padding:0 @spacing/2;
+            color:white;
+            font-size:1.8em;
+
+            &:hover {
+                background:darken(@header-background-colour, 10%);
+                text-decoration:none !important;
+            }
+        }
+    }
+
+    div.account {
+        float:right;
+
+        >img {
+            float:right;
+            .border-radius(50%);
+            height:((@header-height)-20px);
+            width:((@header-height)-20px);
+            margin-top:10px;
+            margin-left:@spacing;
+        }
+
+        >div {
+            float:right;
+            line-height:normal;
+            margin-top:9px;
+            font-family:"Open Sans";
+
+            >* {
+                float:right;
+                color:white;
+                line-height:normal;
+                height:auto;
+
+                &.name {
+                    font-size:1.1em;
+                }
+
+                &.identifier {
+                    font-size:0.8em;
+                    color:#EAEAEA;
+
+                    i {
+                        margin-right:5px;
+                    }
+                }
+            }
+        }
+    }
+}

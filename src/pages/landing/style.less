@@ -1,0 +1,106 @@
+@import "../../style/variables.less";
+@import "../../style/mixins.less";
+
+body.landing {
+	background-attachment:fixed;
+	background-size:cover;
+}
+
+.landing-page {
+
+	button {
+		.gradient(@header-background-colour, darken(@header-background-colour, 5%));
+		padding:6px 18px;
+		.border-radius;
+		color:white;
+		border:none;
+
+		&:active {
+			.gradient(darken(@header-background-colour, 5%), darken(@header-background-colour, 15%));
+		}
+	}
+
+	.landing-header {
+		float:left;
+		width:100%;
+		.gradient(lighten(@dark-background-colour, 5%), @dark-background-colour);
+		padding:0 @spacing;
+		.dark-shadow;
+		border-bottom:solid 1px #444;
+
+		span.logo {
+			float:left;
+			color:white;
+			font-size:1.75em;
+			font-family:"Lato";
+			.vertical-centre(@header-height);
+		}
+
+		div.menu, div.sign-in {
+			float:left;
+
+			a {
+				float:left;
+				padding:0 @spacing*1.5;
+				color:white !important;
+				.vertical-centre(@header-height);
+				cursor:pointer;
+				font-size:0.9em;
+
+				&:hover {
+					.gradient(lighten(@dark-background-colour, 10%), lighten(@dark-background-colour, 5%));
+					text-decoration:none;
+				}
+			}
+		}
+
+		div.menu {
+			margin-left:@spacing*3;
+		}
+
+		div.sign-in {
+			float:right;
+		}
+	}
+
+	@tile-width:200px;
+
+	.tile {
+		float:left;
+		background:transparent;
+		color:#FFF;
+		padding:15px 50px;
+
+		>* {
+			float:left;
+			width:100%;
+			margin:@spacing 0 0 0;
+		}
+
+		span.logo {
+			font-size:3em;
+			width:100%;
+			font-weight:bold;
+			margin-top:0;
+		}
+
+		p {
+			font-size:0.9em;
+			color:#DDD;
+
+			b {
+				color:white;
+			}
+
+			a {
+				color:white;
+				cursor:pointer;
+				text-decoration:underline;
+			}
+		}
+
+		h3 {
+			margin-top:@spacing*1.5;
+		}
+	}
+}
