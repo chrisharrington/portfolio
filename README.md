@@ -1,1 +1,1 @@
-A seed application using React, Webpack, Gulp and LESS CSS.
+A seed application using React, Webpack and SASS.

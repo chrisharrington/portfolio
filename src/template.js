@@ -1,14 +1,10 @@
 "use strict";
 
-var React = require("react"),
-	_ = require("lodash");
+import React from "react";
+import ReactDOM from "react-dom";
 
-require("./style.less");
-
-module.exports = React.createClass({
-	render: function() {
-		return <div>
-
-		</div>;
-	}
-});
+export default class Template extends React.Component {
+	render() {
+		return <div>template</div>;
+	};
+};
