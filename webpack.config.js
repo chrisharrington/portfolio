@@ -1,39 +1,10 @@
 var path = require("path"),
     webpack = require("webpack"),
-
-    CleanWebpackPlugin = require("clean-webpack-plugin");
-
-module.exports = {
-    entry: "./src/index.js",
-    output: {
-        path: "dist",
-        filename: "bundle.js"
-    },
-    module: {
-        loaders: [
-            { test: /\.(png|jpg|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
-            { test: /\.css$/, loader: "style!css" },
-            { test: /\.js$/, loader: "babel" },
-            { test: /\.less$/, loader: "style!css!less" }
-        ]
-    },
-    plugins: [
-        new CleanWebpackPlugin(["dist"])
-    ],
-    resolve: {
-        alias: {
-            "react": path.join(__dirname, "bower_components/react/react-with-addons.js")
-        },
-        root: [path.join(__dirname, "bower_components"), path.join(__dirname, "node_modules"), path.join(__dirname, "src"), path.join(__dirname, "assets")]
-    }
-};
-
-var path = require("path"),
-    webpack = require("webpack"),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
     CommonsChunkPlugin = new require("webpack/lib/optimize/CommonsChunkPlugin"),
     LiveReloadPlugin = require("webpack-livereload-plugin"),
-    CopyWebpackPlugin = require("copy-webpack-plugin");
+    CopyWebpackPlugin = require("copy-webpack-plugin"),
+    CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = {
     entry: "./src/index.js",
@@ -55,9 +26,11 @@ module.exports = {
         ]
     },
     resolve: {
-        root: [path.resolve("./node_modules")]
+        root: [path.resolve("./node_modules"), path.join(__dirname, "./src")]
     },
     plugins: [
-        new LiveReloadPlugin()
+        new LiveReloadPlugin(),
+        new ExtractTextPlugin("bundle.css"),
+        new CleanWebpackPlugin(["dist"])
     ]
 };
