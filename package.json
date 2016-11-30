@@ -40,5 +40,9 @@
   "dependencies": {
     "react": "^15.2.1",
     "react-dom": "^15.2.1"
+  },
+  "scripts": {
+    "setup": "npm install webpack-dev-server -g && npm install",
+    "start": "webpack-dev-server --inline --hot --open"
   }
 }

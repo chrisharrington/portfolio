@@ -5,11 +5,17 @@ import ReactDOM from "react-dom";
 
 import "file?name=index.html!./index.html";
 
-import "file?name=grid.min.css!./assets/grid.min.css";
+import "./assets/grid.min.css";
 
 class HelloWorld extends React.Component {
 	render() {
-		return <div>Hello, world!</div>;
+		return <div className='container'>
+			<div className='row'>
+				<div className='col-md-12'>
+					Hello, world!
+				</div>
+			</div>
+		</div>;
 	};
 };
 
