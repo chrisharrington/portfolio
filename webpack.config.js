@@ -4,7 +4,8 @@ var path = require("path"),
     CommonsChunkPlugin = new require("webpack/lib/optimize/CommonsChunkPlugin"),
     LiveReloadPlugin = require("webpack-livereload-plugin"),
     CopyWebpackPlugin = require("copy-webpack-plugin"),
-    CleanWebpackPlugin = require("clean-webpack-plugin");
+    CleanWebpackPlugin = require("clean-webpack-plugin"),
+    WebpackBuildNotifier = require('webpack-build-notifier');
 
 module.exports = {
     entry: "./src/index.jsx",
@@ -25,12 +26,18 @@ module.exports = {
             { test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader") }
         ]
     },
+    devtool: 'cheap-module-inline-source-map',
     resolve: {
-        root: [path.resolve("./node_modules"), path.join(__dirname, "./src")]
+        root: [path.resolve("./node_modules"), path.join(__dirname, "./src")],
+        extensions: ['', '.js', '.jsx']
     },
     plugins: [
         new LiveReloadPlugin(),
         new ExtractTextPlugin("bundle.css"),
-        new CleanWebpackPlugin(["dist"])
+        new CleanWebpackPlugin(["dist"]),
+        new WebpackBuildNotifier({
+            title: 'Hooked with an Edge',
+            successSound: false
+        })
     ]
 };
