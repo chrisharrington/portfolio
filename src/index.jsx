@@ -3,7 +3,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import "file?name=index.html!./index.html";
+import "file-loader?name=index.html!./index.html";
 
 import "./assets/grid.min.css";
 
