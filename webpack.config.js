@@ -9,6 +9,10 @@ var path = require('path'),
 
 console.log(path.resolve('./src/index.jsx'));
 
+var sass = new ExtractTextPlugin({
+    filename: 'bundle.css'
+});
+
 module.exports = {
     entry: path.resolve('./src/index.jsx'),
     output: {
@@ -20,12 +24,40 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.json$/i, loader: 'json-loader' },
-            { test: /\.(jpe?g|png|gif|svg)$/i, loaders: ['file-loader?name=/images/[hash].[ext]']},
-            { test: /\.htc$/i, loader: 'file-loader?name=assets/[hash].[ext]' },
-            { test: /\.css$/i, loader: 'style-loader!css-loader' },
-            { test: /\.(js|jsx)$/i, loader: 'babel-loader' },
-            { test: /\.scss$/, loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' }) }
+            {
+                test: /\.json$/i,
+                use: 'json-loader'
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                use: ['file-loader?name=/images/[hash].[ext]']
+            },
+            {
+                test: /\.htc$/i,
+                use: 'file-loader?name=assets/[hash].[ext]'
+            },
+            {
+                test: /\.css$/i,
+                use: 'css-loader'
+            },
+            {
+                test: /\.(js|jsx)$/i,
+                use: 'babel-loader'
+            },
+            {
+                test: /\.scss$/,
+                use: sass.extract({
+                    use: [
+                        {
+                            loader: 'css-loader'
+                        },
+                        {
+                            loader: 'sass-loader'
+                        }
+                    ],
+                    fallback: 'style-loader'
+                })
+            }
         ]
     },
     devtool: 'cheap-module-inline-source-map',
@@ -38,10 +70,10 @@ module.exports = {
     },
     plugins: [
         new LiveReloadPlugin(),
-        new ExtractTextPlugin('bundle.css'),
+        sass,
         new CleanWebpackPlugin(['dist']),
         new WebpackBuildNotifier({
-            title: 'Hooked with an Edge',
+            title: 'Portfolio',
             successSound: false
         })
     ]
